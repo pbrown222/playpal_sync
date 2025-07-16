@@ -91,6 +91,9 @@ const SearchBar: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   searchContainer: {
     justifyContent: "center",
     alignItems: "center",
