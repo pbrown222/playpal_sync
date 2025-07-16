@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "PlayPal",
+    "slug": "playpal-mobile",
+    "version": "1.0.0",
+    "orientation": "default",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#15BDFB"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#15BDFB"
+      }
+    },
+    "web": {}
+  }
+}
