@@ -595,7 +595,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.playpal.gray,
-    fontWeight: typography.fontWeights.bold,
+    fontWeight: "700" as const,
     fontSize: typography.fontSizes.xl,
     lineHeight: 24,
     marginBottom: 4,
@@ -626,7 +626,7 @@ const styles = StyleSheet.create({
   },
   dayHeaderText: {
     color: colors.playpal.gray,
-    fontWeight: typography.fontWeights.bold,
+    fontWeight: "700" as const,
     fontSize: typography.fontSizes.sm,
     fontFamily: typography.fontFamilies.bold,
   },
@@ -670,7 +670,7 @@ const styles = StyleSheet.create({
   },
   timeText: {
     color: colors.playpal.white,
-    fontWeight: typography.fontWeights.bold,
+    fontWeight: "700" as const,
     lineHeight: 12,
     fontFamily: typography.fontFamilies.bold,
   },
@@ -704,7 +704,7 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   timePickerLabel: {
-    fontWeight: typography.fontWeights.bold,
+    fontWeight: "700" as const,
     color: colors.playpal.blue,
     fontSize: typography.fontSizes.xs,
     fontFamily: typography.fontFamilies.bold,
