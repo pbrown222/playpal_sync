@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   nextDaysText: {
     color: colors.playpal.gray, // text-playpal-gray
     textAlign: "center",
-    fontWeight: typography.fontWeights.bold, // font-bold
+    fontWeight: "700" as const, // font-bold
     lineHeight: 24, // leading-6
     fontFamily: typography.fontFamilies.bold,
   },
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   dateText: {
     color: colors.playpal.gray, // text-playpal-gray
     textAlign: "center",
-    fontWeight: typography.fontWeights.bold, // font-bold
+    fontWeight: "700" as const, // font-bold
     lineHeight: 16, // leading-[16px]
     flex: 1, // flex-1
     fontFamily: typography.fontFamilies.bold,
