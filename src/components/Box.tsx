@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.playpal.white, // bg-white
     borderRadius: borderRadius.lg, // rounded-lg
-    ...shadows.medium, // shadow-sm equivalent
+    ...shadows.searchBar, // shadow-sm equivalent
     alignSelf: "center", // mx-auto equivalent
   },
 });
