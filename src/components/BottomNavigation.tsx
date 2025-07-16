@@ -7,7 +7,7 @@ import {
   borderRadius,
   shadows,
   spacing,
-  breakpoints,
+  breakpoints, // Ensure breakpoints are imported
 } from "../styles/theme";
 
 // Props from React Navigation tabBar
@@ -23,7 +23,7 @@ interface NavItem {
 const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation }) => {
   const screenWidth = Dimensions.get('window').width;
 
-  // Responsive values (only for container dimensions and spacing)
+  // Responsive values for layout adjustments
   const getResponsiveNavItemWidth = () => {
     if (screenWidth >= breakpoints["2xl"]) return 75;
     if (screenWidth >= breakpoints.xl) return 70;
@@ -31,6 +31,7 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
     if (screenWidth >= breakpoints.md) return 63;
     return 58;
   };
+
   const getResponsiveNavItemHeight = () => {
     if (screenWidth >= breakpoints["2xl"]) return 60;
     if (screenWidth >= breakpoints.xl) return 58;
@@ -38,24 +39,32 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
     if (screenWidth >= breakpoints.md) return 53;
     return 50;
   };
+
+  // 👇 CHANGED: Adjusted horizontal padding to give more room for gap changes 👇
   const getResponsivePadding = () => {
-    if (screenWidth >= breakpoints.xl) return 12;
-    if (screenWidth >= breakpoints.lg) return 10;
-    if (screenWidth >= breakpoints.md) return 8;
-    return 6;
+    if (screenWidth >= breakpoints.xl) return 60; // More horizontal padding for XL
+    if (screenWidth >= breakpoints.lg) return 40; // More horizontal padding for LG
+    if (screenWidth >= breakpoints.md) return 20; // Moderate for MD
+    if (screenWidth >= breakpoints.sm) return 15; // Slightly less for SM
+    return 10; // Less for XS
   };
+
+  // 👇 CHANGED: Adjusted gap values for desired spacing 👇
   const getResponsiveGap = () => {
-    if (screenWidth >= breakpoints.xl) return 14;
-    if (screenWidth >= breakpoints.lg) return 12;
-    if (screenWidth >= breakpoints.md) return 11;
-    return 9;
+    if (screenWidth >= breakpoints.xl) return 30; // Farther apart for XL
+    if (screenWidth >= breakpoints.lg) return 25; // Farther apart for LG
+    if (screenWidth >= breakpoints.md) return 18; // Distinct for MD
+    if (screenWidth >= breakpoints.sm) return 14; // A bit closer for SM
+    return 10; // Closest for XS (default/smallest screen size)
   };
+
   const getResponsiveBottomPadding = () => {
     if (screenWidth >= breakpoints.xl) return 35;
     if (screenWidth >= breakpoints.lg) return 32;
     if (screenWidth >= breakpoints.md) return 30;
     return 25;
   };
+
   const getResponsiveTopPadding = () => {
     if (screenWidth >= breakpoints.xl) return 32;
     if (screenWidth >= breakpoints.lg) return 30;
@@ -130,7 +139,7 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
   const ChatIcon = (isActive: boolean) => (
     <Svg width="20" height="20" viewBox="0 0 20 20" fill="none">
       <Path
-        d="M7.33286 0.295814C9.07863 -0.0986087 10.8918 -0.0986006 12.6376 0.295814L13.0409 0.386634C16.2828 1.11909 18.8287 3.61107 19.6102 6.82023L19.704 7.20695C20.098 8.82524 20.0981 10.5135 19.704 12.1318C18.8732 15.5425 15.8001 17.9941 12.2997 17.9941L11.2323 17.9931L11.1776 18.1152C10.4283 19.6669 8.61494 20.3713 6.96665 19.8066L6.78403 19.7392L6.35532 19.5605C3.34484 18.2349 1.10331 15.5665 0.324074 12.3671C-0.106199 10.6003 -0.108537 8.74557 0.320167 6.98527C1.12649 3.67498 3.75243 1.10522 7.09653 0.349525L7.33286 0.295814ZM12.1971 2.24699C10.7416 1.91814 9.22974 1.91819 7.77427 2.24699L7.53794 2.29972C4.93243 2.88838 2.88967 4.88793 2.26353 7.4589C1.91074 8.90746 1.91276 10.437 2.26743 11.8935C2.92022 14.5739 4.84203 16.7989 7.40708 17.8339L7.53208 17.8837C8.29225 18.1905 9.12044 17.8702 9.40903 17.1737L9.47349 17.0351C9.79797 16.4015 10.4544 15.9942 11.1756 15.9941H12.2997C14.8718 15.9941 17.1467 14.1788 17.7606 11.6581C18.079 10.3507 18.079 8.987 17.7606 7.6796L17.6668 7.29386C17.0654 4.82427 15.1033 2.90332 12.6004 2.33781L12.1971 2.24699ZM10.2342 9.99992C10.6571 10.0002 10.9999 10.4477 10.9999 10.9999C10.9999 11.552 10.6571 11.9997 10.2342 11.9999H5.76548C5.3426 11.9997 4.99986 11.552 4.99986 10.9999C4.99986 10.4477 5.3426 10.0002 5.76548 9.99992H10.2342ZM14.1043 6.99992C14.599 6.99992 14.9999 7.44763 14.9999 7.99992C14.9999 8.5522 14.599 8.99991 14.1043 8.99992H5.89536C5.40078 8.99991 4.99986 8.55219 4.99986 7.99992C4.99986 7.44763 5.40078 6.99992 5.89536 6.99992H14.1043Z"
+        d="M7.33286 0.295814C9.07863 -0.0986087 10.8918 -0.0986006 12.6376 0.295814L13.0409 0.386634C16.2828 1.11909 18.8287 3.61107 19.6102 6.82023L19.704 7.20695C20.098 8.82524 20.0981 10.5135 19.704 12.1318C18.8732 15.5425 15.8001 17.9941 12.2997 17.9941L11.2323 17.9931L11.1776 18.1152C10.4283 19.6669 8.61494 20.3713 6.96665 19.8066L6.78403 19.7392L6.35532 19.5605C3.34484 18.2349 1.10331 15.5665 0.324074 12.3671C-0.106199 10.6003 -0.108537 8.74557 0.320167 6.98527C1.12649 3.67498 3.75243 1.10522 7.09653 0.349525L7.33286 0.295814ZM12.1971 2.24699C10.7416 1.91814 9.22974 1.91819 7.77427 2.24699L7.53794 2.29972C4.93243 2.88838 2.88967 4.88793 2.26353 7.4589C1.91074 8.90746 1.91276 10.437 2.26743 11.8935C2.92022 14.5739 4.84203 16.7989 7.40708 17.8339L7.53208 17.8837C8.29225 18.1905 9.12044 17.8702 9.40903 17.1737L9.47349 17.0351C9.79797 16.4015 10.4544 15.9942 11.1756 15.9941H12.2997C14.8718 15.9941 17.1467 14.1788 17.7606 11.6581C18.079 10.3507 18.079 8.987 17.7606 7.6796L17.6668 7.29386C17.0654 4.82427 15.1033 2.90332 12.6004 2.33781L12.1971 2.24699ZM10.2342 9.99992C10.6571 10.0002 10.9999 10.4477 10.9999 10.9999C10.9999 11.552 10.6571 11.9997 10.2342 11.9999H5.76548C5.3426 11.9997 4.99986 11.552 4.99986 10.9999C4.99986 10.4477 5.3426 10.0002 5.76548 9.99992H14.1043ZM14.1043 6.99992C14.599 6.99992 14.9999 7.44763 14.9999 7.99992C14.9999 8.5522 14.599 8.99991 14.1043 8.99992H5.89536C5.40078 8.99991 4.99986 8.55219 4.99986 7.99992C4.99986 7.44763 5.40078 6.99992 5.89536 6.99992H14.1043Z"
         fill={isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]}
       />
     </Svg>
@@ -152,14 +161,14 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
         <View style={[
           styles.background,
           {
-            paddingHorizontal: horizontalPadding,
+            paddingHorizontal: horizontalPadding, // Applied responsive horizontal padding
             paddingBottom: bottomPadding,
             paddingTop: topPadding,
           }
         ]}>
           <View style={[
             styles.navContainer,
-            { gap: gap }
+            { gap: gap } // Applied responsive gap
           ]}>
             {state.routes.map((route, idx) => {
               const isActive = state.index === idx;
@@ -232,7 +241,7 @@ const styles = StyleSheet.create({
   },
   navContainer: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "center", // This helps center the items within the padding
     alignItems: "flex-start",
   },
   navItem: {
