@@ -34,11 +34,13 @@ export const typography = {
     "2xl": 24, // text-2xl
   },
   fontWeights: {
-    normal: "400",
-    bold: "700",
+    normal: "400" as const,
+    medium: "500" as const,
+    bold: "700" as const,
   },
   fontFamilies: {
     regular: "Inter_400Regular",
+    medium: "Inter_400Regular", // Using regular for medium since we don't have Inter_500Medium
     bold: "Inter_700Bold",
   },
   lineHeights: {
