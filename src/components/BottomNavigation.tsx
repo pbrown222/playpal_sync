@@ -48,7 +48,7 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
     if (screenWidth >= breakpoints.xl) return 14;
     if (screenWidth >= breakpoints.lg) return 12;
     if (screenWidth >= breakpoints.md) return 11;
-    return 4;
+    return 1;
   };
   const getResponsiveBottomPadding = () => {
     if (screenWidth >= breakpoints.xl) return 35;
