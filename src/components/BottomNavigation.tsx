@@ -157,9 +157,10 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
             paddingTop: topPadding,
           }
         ]}>
-          <View style={
-            styles.navContainer
-          }>
+          <View style={[
+            styles.navContainer,
+            { gap: gap }
+          ]}>
             {state.routes.map((route, idx) => {
               const isActive = state.index === idx;
               let label =
@@ -182,7 +183,6 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
                     {
                       width: navItemWidth,
                       height: navItemHeight,
-                      marginRight: idx !== state.routes.length - 1 ? gap : 0,
                     },
                     isHome && styles.homeNavItem,
                   ]}
