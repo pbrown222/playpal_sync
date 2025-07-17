@@ -1,16 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 const createScreen = (title: string, color: string) => () => (
-  <SafeAreaView style={styles.container}>
-    <LinearGradient colors={["#15BDFB", color]} style={styles.gradient}>
+  <View style={styles.container}>
+    <LinearGradient
+      colors={["#15BDFB", color]}
+      style={styles.gradient}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 0, y: 1 }}
+    >
       <View style={styles.content}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.message}>✅ Screen is working</Text>
       </View>
     </LinearGradient>
-  </SafeAreaView>
+  </View>
 );
 
 export const Home = createScreen("Home", "#8DDE77");
