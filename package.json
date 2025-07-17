@@ -6,7 +6,10 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "setup": "npm install",
+    "clean-install": "rm -rf node_modules package-lock.json && npm install",
+    "postinstall": "echo 'Dependencies installed successfully! Run npm start to begin development.'"
   },
   "dependencies": {
     "@expo-google-fonts/inter": "^0.4.1",
@@ -39,6 +42,14 @@
     "@types/react": "~19.0.10",
     "@types/react-native": "^0.73.0",
     "typescript": "~5.8.3"
+  },
+  "overrides": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "resolutions": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "private": true,
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"

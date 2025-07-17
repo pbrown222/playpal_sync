@@ -18,12 +18,18 @@ else
     echo "✅ Expo CLI is already installed"
 fi
 
-# Navigate to mobile directory
+# Navigate to project directory
 cd "$(dirname "$0")"
 
-# Install dependencies
-echo "📦 Installing dependencies..."
-npm install
+# Clean previous installations if they exist
+if [ -d "node_modules" ]; then
+    echo "🧹 Cleaning previous installation..."
+    rm -rf node_modules package-lock.json
+fi
+
+# Install dependencies with legacy peer deps
+echo "📦 Installing dependencies with legacy peer deps support..."
+npm install --legacy-peer-deps
 
 # Check if installation was successful
 if [ $? -eq 0 ]; then
@@ -44,8 +50,23 @@ if [ $? -eq 0 ]; then
     echo "📚 Check README.md for detailed documentation"
     echo "📋 Check CONVERSION_GUIDE.md for conversion details"
     echo ""
+    echo "🔧 If you encounter dependency issues later, run:"
+    echo "   npm run clean-install"
+    echo ""
     echo "Happy coding! 🎉"
 else
-    echo "❌ Installation failed. Please check the errors above."
-    exit 1
+    echo "❌ Installation failed. Trying alternative approach..."
+    echo "🔄 Attempting clean install with legacy peer deps..."
+    
+    # Try alternative installation method
+    npm cache clean --force 2>/dev/null || true
+    npm install --legacy-peer-deps --no-optional
+    
+    if [ $? -eq 0 ]; then
+        echo "✅ Alternative installation successful!"
+    else
+        echo "❌ Installation failed. Please check the errors above."
+        echo "💡 Try running: npm install --legacy-peer-deps manually"
+        exit 1
+    fi
 fi
