@@ -28,9 +28,13 @@ export const EventCreate = createScreen("Create Event", "#F4F6F0");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: "100%",
+    height: "100%",
+    minHeight: Platform.OS === "web" ? "100vh" : undefined,
   },
   gradient: {
     flex: 1,
+    width: "100%",
   },
   content: {
     flex: 1,
@@ -44,6 +48,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
   },
   message: {
     color: "white",
@@ -52,5 +60,9 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,255,255,0.2)",
     padding: 15,
     borderRadius: 10,
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
   },
 });
