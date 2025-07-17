@@ -6,6 +6,7 @@ import { Platform } from "react-native";
 
 // Import screens
 import Pals from "../screens/Pals";
+import PalsWeb from "../screens/PalsWeb";
 import {
   Home,
   Venues,
