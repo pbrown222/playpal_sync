@@ -31,7 +31,8 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({
   descriptors,
   navigation,
 }) => {
-  const screenWidth = Dimensions.get("window").width;
+  import { useWindowDimensions } from "react-native";
+  const { width: screenWidth } = useWindowDimensions();
 
   // Responsive values (only for container dimensions and spacing)
   const getResponsiveNavItemWidth = () => {
