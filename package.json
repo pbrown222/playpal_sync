@@ -6,7 +6,7 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
+    "web": "expo start --web --port 8082",
     "setup": "npm install",
     "clean-install": "rm -rf node_modules package-lock.json && npm install",
     "postinstall": "echo 'Dependencies installed successfully! Run npm start to begin development.'"
