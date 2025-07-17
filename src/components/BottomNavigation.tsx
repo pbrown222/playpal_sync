@@ -18,6 +18,8 @@ import {
 
 // Props from React Navigation tabBar
 import type { BottomTabBarProps } from "@react-navigation/bottom-tabs";
+import { useWindowDimensions } from "react-native";
+
 
 interface NavItem {
   id: string;
@@ -31,7 +33,6 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({
   descriptors,
   navigation,
 }) => {
-  import { useWindowDimensions } from "react-native";
   const { width: screenWidth } = useWindowDimensions();
 
   // Responsive values (only for container dimensions and spacing)
