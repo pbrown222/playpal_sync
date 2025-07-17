@@ -7,8 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web --port 8082",
-    "setup": "npm install",
-    "clean-install": "rm -rf node_modules package-lock.json && npm install",
+    "setup": "npm install --legacy-peer-deps",
+    "clean-install": "rm -rf node_modules package-lock.json && npm install --legacy-peer-deps",
     "postinstall": "echo 'Dependencies installed successfully! Run npm start to begin development.'"
   },
   "dependencies": {
