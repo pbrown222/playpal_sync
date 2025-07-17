@@ -162,51 +162,49 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
         ]}>
           <View style={styles.navContainer} />
 
-            {state.routes.map((route, idx) => {
-              const isActive = state.index === idx;
-              let label =
-                descriptors[route.key].options.tabBarLabel ||
-                descriptors[route.key].options.title ||
-                route.name;
-              if (typeof label !== "string") label = route.name;
-              const Icon = iconMap[route.name];
-              const isHome = route.name === "Home";
-              return (
-                <TouchableOpacity
-                  key={route.key}
-                  onPress={() => {
-                    if (!isActive) {
-                      navigation.navigate(route.name);
-                    }
-                  }}
-                  style={[
-                    styles.navItem,
-                    {
-                      width: navItemWidth,
-                      height: navItemHeight,
-                    },
-                    isHome && styles.homeNavItem,
-                  ]}
-                  accessibilityRole="button"
-                  accessibilityState={isActive ? { selected: true } : {}}
-                  accessibilityLabel={descriptors[route.key].options.tabBarAccessibilityLabel}
-                  testID={descriptors[route.key].options.tabBarTestID}
-                >
-                  <View style={styles.navContent}>
-                    <View style={styles.iconContainer}>{Icon && Icon(isActive)}</View>
-                    <Text
-                      style={[
-                        styles.navLabel,
-                        isActive ? styles.activeNavLabel : styles.inactiveNavLabel,
-                      ]}
-                    >
-                      {label}
-                    </Text>
-                    {isActive && <View style={styles.activeIndicator} />}
-                  </View>
-                </TouchableOpacity>
-              );
-            })}
+          {state.routes.map((route, idx) => {
+            const isActive = state.index === idx;
+            const Icon = iconMap[route.name];
+            const isHome = route.name === "Home";
+
+            return (
+              <TouchableOpacity
+                key={route.key}
+                onPress={() => {
+                  if (!isActive) {
+                    navigation.navigate(route.name);
+                  }
+                }}
+                style={[
+                  styles.navItem,
+                  {
+                    width: navItemWidth,
+                    height: navItemHeight,
+                    marginHorizontal: gap / 2, // 👈 this is the key addition
+                  },
+                  isHome && styles.homeNavItem,
+                ]}
+                accessibilityRole="button"
+                accessibilityState={isActive ? { selected: true } : {}}
+                accessibilityLabel={descriptors[route.key].options.tabBarAccessibilityLabel}
+                testID={descriptors[route.key].options.tabBarTestID}
+              >
+                <View style={styles.navContent}>
+                  <View style={styles.iconContainer}>{Icon(isActive)}</View>
+                  <Text
+                    style={[
+                      styles.navLabel,
+                      isActive ? styles.activeNavLabel : styles.inactiveNavLabel,
+                    ]}
+                  >
+                    {route.name}
+                  </Text>
+                  {isActive && <View style={styles.activeIndicator} />}
+                </View>
+              </TouchableOpacity>
+            );
+          })}
+
           </View>
         </View>
       </View>
