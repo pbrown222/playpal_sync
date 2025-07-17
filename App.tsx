@@ -1,43 +1,52 @@
 import React from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StatusBar } from "expo-status-bar";
 import { View, Text, StyleSheet } from "react-native";
-import AppNavigator from "./src/navigation/AppNavigator";
-import { useAppFonts } from "./src/styles/fonts";
-
-const queryClient = new QueryClient();
 
 export default function App() {
-  const fontsLoaded = useAppFonts();
-
-  console.log("Fonts loaded:", fontsLoaded);
-
-  if (!fontsLoaded) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>Loading fonts...</Text>
-      </View>
-    );
-  }
+  console.log("App is loading...");
 
   return (
-    <QueryClientProvider client={queryClient}>
+    <View style={styles.container}>
       <StatusBar style="light" />
-      <AppNavigator />
-    </QueryClientProvider>
+      <View style={styles.content}>
+        <Text style={styles.title}>PlayPal Mobile</Text>
+        <Text style={styles.subtitle}>React Native App</Text>
+        <Text style={styles.message}>✅ App is working!</Text>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  loadingContainer: {
+  container: {
+    flex: 1,
+    backgroundColor: "#15BDFB",
+  },
+  content: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#15BDFB",
+    padding: 20,
   },
-  loadingText: {
+  title: {
+    color: "white",
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  subtitle: {
     color: "white",
     fontSize: 18,
-    fontWeight: "bold",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  message: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    backgroundColor: "rgba(255,255,255,0.2)",
+    padding: 15,
+    borderRadius: 10,
   },
 });
