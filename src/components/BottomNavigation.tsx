@@ -59,23 +59,18 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({
 
   // MODIFIED: Adjusting gap responsiveness
   const getResponsiveGap = () => {
-    if (screenWidth >= breakpoints.xl) return 30; // Farther away for xl
-    if (screenWidth >= breakpoints.lg) return 25; // Farther away for lg
-    if (screenWidth >= breakpoints.md) return 20; // Farther away for md
-    return 5; // Closer for xs (default/smaller screens)
+    if (screenWidth >= breakpoints.xl) return 17; // Farther away for xl
+    if (screenWidth >= breakpoints.lg) return 15; // Farther away for lg
+    if (screenWidth >= breakpoints.md) return 13; // Farther away for md
+    if (screenWidth >= breakpoints.sm) return 11;
+    return 9; // Closer for xs (default/smaller screens)
   };
 
   const getResponsiveBottomPadding = () => {
-    if (screenWidth >= breakpoints.xl) return 35;
-    if (screenWidth >= breakpoints.lg) return 32;
-    if (screenWidth >= breakpoints.md) return 30;
-    return 25;
+    return 30;
   };
   const getResponsiveTopPadding = () => {
-    if (screenWidth >= breakpoints.xl) return 32;
-    if (screenWidth >= breakpoints.lg) return 30;
-    if (screenWidth >= breakpoints.md) return 29;
-    return 26;
+    return 29;
   };
 
   const navItemWidth = getResponsiveNavItemWidth();
