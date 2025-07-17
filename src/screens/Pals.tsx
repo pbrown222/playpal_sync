@@ -18,6 +18,7 @@ import SearchBar from "../components/SearchBar";
 import CalendarBar from "../components/CalendarBar";
 import { colors, spacing, breakpoints, getGradientConfig, typography } from "../styles/theme";
 
+
 const { width, height } = Dimensions.get("window");
 
 const Pals: React.FC = () => {
