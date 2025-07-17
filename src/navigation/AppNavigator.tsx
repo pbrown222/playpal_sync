@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Import screens
-import PalsSimple from "../screens/PalsSimple";
+import Pals from "../screens/Pals";
 import {
   Home,
   Venues,
