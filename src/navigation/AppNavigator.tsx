@@ -22,7 +22,7 @@ const MainTabs: React.FC = () => (
     tabBar={(props) => <BottomNavigation {...props} />}
     screenOptions={{ headerShown: false }}
   >
-    <Tab.Screen name="Pals" component={Pals} />
+    <Tab.Screen name="Pals" component={PalsSimple} />
     <Tab.Screen name="Venues" component={Venues} />
     <Tab.Screen name="Home" component={Home} />
     <Tab.Screen name="Gear" component={Gear} />
