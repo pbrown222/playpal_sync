@@ -5,12 +5,14 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Import screens
 import PalsSimple from "../screens/PalsSimple";
-import Home from "../screens/Home";
-import Venues from "../screens/Venues";
-import Gear from "../screens/Gear";
-import Chat from "../screens/Chat";
-import EventDetail from "../screens/EventDetail";
-import EventCreate from "../screens/EventCreate";
+import {
+  Home,
+  Venues,
+  Gear,
+  Chat,
+  EventDetail,
+  EventCreate,
+} from "../screens/SimpleScreens";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
