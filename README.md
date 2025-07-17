@@ -13,26 +13,41 @@ This is the React Native version of the PlayPal web application, converted to wo
 
 ### Installation
 
-1. Navigate to the mobile directory:
+#### Automatic Setup (Recommended)
+
+Run the automated setup script:
 
 ```bash
-cd mobile
+# Cross-platform setup
+node install.js
+
+# Or use the shell script (Unix/Mac/Linux)
+./setup.sh
 ```
 
-2. Install dependencies:
+#### Manual Setup
+
+1. Install dependencies with legacy peer deps support:
 
 ```bash
-npm install
-# or
-yarn install
+npm install --legacy-peer-deps
 ```
 
-3. Start the development server:
+If you encounter issues, try:
+
+```bash
+# Clean install
+npm run clean-install
+
+# Or manual cleanup
+rm -rf node_modules package-lock.json
+npm install --legacy-peer-deps
+```
+
+2. Start the development server:
 
 ```bash
 npm start
-# or
-yarn start
 ```
 
 4. Run on specific platforms:
