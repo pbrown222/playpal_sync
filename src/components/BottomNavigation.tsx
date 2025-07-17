@@ -1,5 +1,11 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import Svg, { Path } from "react-native-svg";
 import {
   colors,
@@ -20,8 +26,12 @@ interface NavItem {
   icon: React.ReactNode;
 }
 
-const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, navigation }) => {
-  const screenWidth = Dimensions.get('window').width;
+const BottomNavigation: React.FC<BottomTabBarProps> = ({
+  state,
+  descriptors,
+  navigation,
+}) => {
+  const screenWidth = Dimensions.get("window").width;
 
   // Responsive values (only for container dimensions and spacing)
   const getResponsiveNavItemWidth = () => {
@@ -78,7 +88,9 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
     <Svg width={24} height={24} viewBox="0 0 24 24" fill="none">
       <Path
         d="M7 18V17C7 15.6739 7.52678 14.4021 8.46447 13.4645C9.40215 12.5268 10.6739 12 12 12M12 12C13.3261 12 14.5979 12.5268 15.5355 13.4645C16.4732 14.4021 17 15.6739 17 17V18M12 12C12.7956 12 13.5587 11.6839 14.1213 11.1213C14.6839 10.5587 15 9.79565 15 9C15 8.20435 14.6839 7.44129 14.1213 6.87868C13.5587 6.31607 12.7956 6 12 6C11.2044 6 10.4413 6.31607 9.87868 6.87868C9.31607 7.44129 9 8.20435 9 9C9 9.79565 9.31607 10.5587 9.87868 11.1213C10.4413 11.6839 11.2044 12 12 12ZM1 18V17C1 16.2044 1.31607 15.4413 1.87868 14.8787C2.44129 14.3161 3.20435 14 4 14M4 14C4.53043 14 5.03914 13.7893 5.41421 13.4142C5.78929 13.0391 6 12.5304 6 12C6 11.4696 5.78929 10.9609 5.41421 10.5858C5.03914 10.2107 4.53043 10 4 10C3.46957 10 2.96086 10.2107 2.58579 10.5858C2.21071 10.9609 2 11.4696 2 12C2 12.5304 2.21071 13.0391 2.58579 13.4142C2.96086 13.7893 3.46957 14 4 14ZM23 18V17C23 16.2044 22.6839 15.4413 22.1213 14.8787C21.5587 14.3161 20.7956 14 20 14M20 14C20.5304 14 21.0391 13.7893 21.4142 13.4142C21.7893 13.0391 22 12.5304 22 12C22 11.4696 21.7893 10.9609 21.4142 10.5858C21.0391 10.2107 20.5304 10 20 10C19.4696 10 18.9609 10.2107 18.5858 10.5858C18.2107 10.9609 18 11.4696 18 12C18 12.5304 18.2107 13.0391 18.5858 13.4142C18.9609 13.7893 19.4696 14 20 14Z"
-        stroke={isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]}
+        stroke={
+          isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]
+        }
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -92,13 +104,17 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
           fillRule="evenodd"
           clipRule="evenodd"
           d="M9 2C5.13401 2 2 5.13401 2 9C2 11.2061 3.33607 13.268 5.20492 14.8876L8.6463 17.8702C8.8493 18.0461 9.1507 18.0461 9.3537 17.8702L12.7951 14.8876C14.6639 13.268 16 11.2061 16 9C16 5.13401 12.866 2 9 2ZM0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 12.0264 16.1902 14.5918 14.1049 16.399L10.6635 19.3816C9.7088 20.209 8.2912 20.209 7.3365 19.3816L3.89505 16.399C1.80977 14.5918 0 12.0264 0 9Z"
-          fill={isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]}
+          fill={
+            isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]
+          }
         />
         <Path
           fillRule="evenodd"
           clipRule="evenodd"
           d="M4 2C4 3.1046 3.1046 4 2 4C0.8954 4 0 3.1046 0 2C0 0.89543 0.8954 0 2 0C3.1046 0 4 0.89543 4 2Z"
-          fill={isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]}
+          fill={
+            isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]
+          }
           transform="translate(7, 7)"
         />
       </Svg>
@@ -116,14 +132,18 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
     <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
       <Path
         d="M19 7H5C4.73478 7 4.48043 7.10536 4.29289 7.29289C4.10536 7.48043 4 7.73478 4 8V21C4 21.2652 4.10536 21.5196 4.29289 21.7071C4.48043 21.8946 4.73478 22 5 22H19C19.2652 22 19.5196 21.8946 19.7071 21.7071C19.8946 21.5196 20 21.2652 20 21V8C20 7.73478 19.8946 7.48043 19.7071 7.29289C19.5196 7.10536 19.2652 7 19 7Z"
-        stroke={isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]}
+        stroke={
+          isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]
+        }
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <Path
         d="M8.5 9V5.5C8.5 5.04037 8.59053 4.58525 8.76642 4.16061C8.94231 3.73597 9.20012 3.35013 9.52513 3.02513C9.85013 2.70012 10.236 2.44231 10.6606 2.26642C11.0852 2.09053 11.5404 2 12 2C12.4596 2 12.9148 2.09053 13.3394 2.26642C13.764 2.44231 14.1499 2.70012 14.4749 3.02513C14.7999 3.35013 15.0577 3.73597 15.2336 4.16061C15.4095 4.58525 15.5 5.04037 15.5 5.5V9"
-        stroke={isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]}
+        stroke={
+          isActive ? colors.playpal.gray : colors.playpal["inactive-gray"]
+        }
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -152,59 +172,64 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <View style={[
-          styles.background,
-          {
-            paddingHorizontal: horizontalPadding,
-            paddingBottom: bottomPadding,
-            paddingTop: topPadding,
-          }
-        ]}>
-          <View style={styles.navContainer} />
+        <View
+          style={[
+            styles.background,
+            {
+              paddingHorizontal: horizontalPadding,
+              paddingBottom: bottomPadding,
+              paddingTop: topPadding,
+            },
+          ]}
+        >
+          <View style={styles.navContainer}>
+            {state.routes.map((route, idx) => {
+              const isActive = state.index === idx;
+              const Icon = iconMap[route.name];
+              const isHome = route.name === "Home";
 
-          {state.routes.map((route, idx) => {
-            const isActive = state.index === idx;
-            const Icon = iconMap[route.name];
-            const isHome = route.name === "Home";
-
-            return (
-              <TouchableOpacity
-                key={route.key}
-                onPress={() => {
-                  if (!isActive) {
-                    navigation.navigate(route.name);
+              return (
+                <TouchableOpacity
+                  key={route.key}
+                  onPress={() => {
+                    if (!isActive) {
+                      navigation.navigate(route.name);
+                    }
+                  }}
+                  style={[
+                    styles.navItem,
+                    {
+                      width: navItemWidth,
+                      height: navItemHeight,
+                      marginHorizontal: gap / 2, // 👈 this is the key addition
+                    },
+                    isHome && styles.homeNavItem,
+                  ]}
+                  accessibilityRole="button"
+                  accessibilityState={isActive ? { selected: true } : {}}
+                  accessibilityLabel={
+                    descriptors[route.key].options.tabBarAccessibilityLabel
                   }
-                }}
-                style={[
-                  styles.navItem,
-                  {
-                    width: navItemWidth,
-                    height: navItemHeight,
-                    marginHorizontal: gap / 2, // 👈 this is the key addition
-                  },
-                  isHome && styles.homeNavItem,
-                ]}
-                accessibilityRole="button"
-                accessibilityState={isActive ? { selected: true } : {}}
-                accessibilityLabel={descriptors[route.key].options.tabBarAccessibilityLabel}
-                testID={descriptors[route.key].options.tabBarTestID}
-              >
-                <View style={styles.navContent}>
-                  <View style={styles.iconContainer}>{Icon(isActive)}</View>
-                  <Text
-                    style={[
-                      styles.navLabel,
-                      isActive ? styles.activeNavLabel : styles.inactiveNavLabel,
-                    ]}
-                  >
-                    {route.name}
-                  </Text>
-                  {isActive && <View style={styles.activeIndicator} />}
-                </View>
-              </TouchableOpacity>
-            );
-          })}
-
+                  testID={descriptors[route.key].options.tabBarTestID}
+                >
+                  <View style={styles.navContent}>
+                    <View style={styles.iconContainer}>{Icon(isActive)}</View>
+                    <Text
+                      style={[
+                        styles.navLabel,
+                        isActive
+                          ? styles.activeNavLabel
+                          : styles.inactiveNavLabel,
+                      ]}
+                    >
+                      {route.name}
+                    </Text>
+                    {isActive && <View style={styles.activeIndicator} />}
+                  </View>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
         </View>
       </View>
     </View>
@@ -264,7 +289,7 @@ const styles = StyleSheet.create({
   },
   navLabel: {
     fontSize: typography.fontSizes.xs,
-    fontWeight: '400',
+    fontWeight: "400",
     lineHeight: 24,
     textAlign: "center",
     fontFamily: typography.fontFamilies.regular,
