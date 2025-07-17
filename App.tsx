@@ -1,7 +1,6 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { StatusBar } from "expo-status-bar";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Platform } from "react-native";
 import AppNavigator from "./src/navigation/AppNavigator";
 import { useAppFonts } from "./src/styles/fonts";
 
@@ -12,7 +11,10 @@ export default function App() {
 
   const fontsLoaded = useAppFonts();
 
-  if (!fontsLoaded) {
+  // For web, skip font loading to avoid white screen
+  const shouldShowApp = Platform.OS === "web" ? true : fontsLoaded;
+
+  if (!shouldShowApp) {
     return (
       <View style={styles.loadingContainer}>
         <Text style={styles.loadingText}>Loading fonts...</Text>
@@ -21,10 +23,11 @@ export default function App() {
   }
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <StatusBar style="light" />
-      <AppNavigator />
-    </QueryClientProvider>
+    <View style={styles.appContainer}>
+      <QueryClientProvider client={queryClient}>
+        <AppNavigator />
+      </QueryClientProvider>
+    </View>
   );
 }
 
