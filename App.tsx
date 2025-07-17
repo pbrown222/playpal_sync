@@ -67,18 +67,104 @@ const styles = StyleSheet.create({
     height: "100%",
     minHeight: Platform.OS === "web" ? "100vh" : undefined,
   },
-  loadingContainer: {
+  gradient: {
+    flex: 1,
+    width: "100%",
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    flexGrow: 1,
+    minHeight: "100%",
+  },
+  content: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#15BDFB",
-    width: "100%",
-    height: "100%",
-    minHeight: Platform.OS === "web" ? "100vh" : undefined,
+    padding: 20,
+    paddingTop: Platform.OS === "web" ? 60 : 40,
+    paddingBottom: Platform.OS === "web" ? 60 : 40,
   },
-  loadingText: {
+  title: {
     color: "white",
-    fontSize: 18,
+    fontSize: Platform.OS === "web" ? 48 : 36,
     fontWeight: "bold",
+    marginBottom: 10,
+    textAlign: "center",
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
+  },
+  subtitle: {
+    color: "white",
+    fontSize: Platform.OS === "web" ? 24 : 20,
+    marginBottom: 40,
+    textAlign: "center",
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
+  },
+  cardGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 20,
+    marginBottom: 40,
+    maxWidth: 600,
+  },
+  card: {
+    backgroundColor: "rgba(255,255,255,0.95)",
+    padding: 20,
+    borderRadius: 15,
+    minWidth: Platform.OS === "web" ? 140 : 120,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  cardIcon: {
+    fontSize: 32,
+    marginBottom: 10,
+  },
+  cardTitle: {
+    color: "#474B69",
+    fontSize: 16,
+    fontWeight: "bold",
+    marginBottom: 5,
+    textAlign: "center",
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
+  },
+  cardSubtitle: {
+    color: "#B0B1B8",
+    fontSize: 14,
+    textAlign: "center",
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
+  },
+  statusCard: {
+    backgroundColor: "rgba(255,255,255,0.2)",
+    padding: 20,
+    borderRadius: 15,
+    alignItems: "center",
+  },
+  statusText: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 5,
+    fontFamily:
+      Platform.OS === "web"
+        ? "Inter, -apple-system, BlinkMacSystemFont, sans-serif"
+        : undefined,
   },
 });
