@@ -205,7 +205,6 @@ const BottomNavigation: React.FC<BottomTabBarProps> = ({ state, descriptors, nav
             );
           })}
 
-          </View>
         </View>
       </View>
     </View>
