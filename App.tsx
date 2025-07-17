@@ -32,11 +32,20 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    minHeight: Platform.OS === "web" ? "100vh" : undefined,
+  },
   loadingContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#15BDFB",
+    width: "100%",
+    height: "100%",
+    minHeight: Platform.OS === "web" ? "100vh" : undefined,
   },
   loadingText: {
     color: "white",
