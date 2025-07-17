@@ -3,14 +3,14 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { StatusBar } from "expo-status-bar";
 import { View, Text, StyleSheet } from "react-native";
 import AppNavigator from "./src/navigation/AppNavigator";
+import { useAppFonts } from "./src/styles/fonts";
 
 const queryClient = new QueryClient();
 
 export default function App() {
   console.log("PlayPal App starting...");
 
-  // Skip font loading for now to test navigation
-  const fontsLoaded = true; // Temporarily bypass font loading
+  const fontsLoaded = useAppFonts();
 
   if (!fontsLoaded) {
     return (
