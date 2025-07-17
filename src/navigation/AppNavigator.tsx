@@ -19,7 +19,7 @@ const Tab = createBottomTabNavigator();
 
 const MainTabs: React.FC = () => (
   <Tab.Navigator initialRouteName="Pals" screenOptions={{ headerShown: false }}>
-    <Tab.Screen name="Pals" component={PalsSimple} />
+    <Tab.Screen name="Pals" component={Pals} />
     <Tab.Screen name="Venues" component={Venues} />
     <Tab.Screen name="Home" component={Home} />
     <Tab.Screen name="Gear" component={Gear} />
