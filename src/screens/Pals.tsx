@@ -18,6 +18,19 @@ import SearchBar from "../components/SearchBar";
 import CalendarBar from "../components/CalendarBar";
 import { colors, spacing, breakpoints, getGradientConfig, typography } from "../styles/theme";
 
+import { BuilderComponent, builder } from '@builder.io/react';
+
+builder.init('YOUR_PUBLIC_API_KEY');
+
+export default function AboutPage() {
+  return (
+    <div>
+      <BuilderComponent model="page" />
+    </div>
+  );
+}
+
+
 const { width, height } = Dimensions.get("window");
 
 const Pals: React.FC = () => {
