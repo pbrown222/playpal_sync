@@ -18,6 +18,8 @@
         "backgroundColor": "#15BDFB"
       }
     },
-    "web": {}
+    "web": {
+      "bundler": "webpack"
+    }
   }
 }

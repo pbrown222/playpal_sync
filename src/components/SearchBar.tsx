@@ -91,6 +91,9 @@ const SearchBar: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   searchContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -108,7 +111,7 @@ const styles = StyleSheet.create({
   },
   searchText: {
     color: colors.playpal.gray, // text-playpal-gray
-    fontWeight: typography.fontWeights.normal, // font-normal
+    fontWeight: "400" as const, // font-normal
     lineHeight: 24, // leading-6
     flex: 1,
     fontFamily: typography.fontFamilies.regular,
