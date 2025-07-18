@@ -17,9 +17,6 @@
       "adaptiveIcon": {
         "backgroundColor": "#15BDFB"
       }
-    },
-    "web": {
-      "bundler": "webpack"
     }
   }
 }
