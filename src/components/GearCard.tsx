@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import Svg, { Path } from "react-native-svg";
+import Box from "./Box";
 import { colors, typography, borderRadius, spacing } from "../styles/theme";
 
 interface GearItem {
@@ -28,26 +29,25 @@ const GearCard: React.FC<GearCardProps> = ({
   onAddGear,
   onToggleMandatory,
 }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>{title}</Text>
-          {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
-        </View>
-        <View style={styles.iconContainer}>
-          <Svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <Path
-              d="M8.99997 1.5L11.09 5.74L15.84 6.41L12.42 9.77L13.18 14.51L8.99997 12.31L4.81997 14.51L5.57997 9.77L2.15997 6.41L6.90997 5.74L8.99997 1.5Z"
-              stroke={colors.playpal.blue}
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </Svg>
-        </View>
-      </View>
+  const StarIcon = () => (
+    <Svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <Path
+        d="M8.99997 1.5L11.09 5.74L15.84 6.41L12.42 9.77L13.18 14.51L8.99997 12.31L4.81997 14.51L5.57997 9.77L2.15997 6.41L6.90997 5.74L8.99997 1.5Z"
+        stroke={colors.playpal.blue}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </Svg>
+  );
 
+  return (
+    <Box 
+      style={styles.container}
+      title={title}
+      subtitle={subtitle}
+      icon={<StarIcon />}
+    >
       {/* Gear Items List */}
       <View style={styles.gearList}>
         {gearItems.map((item) => (
@@ -95,43 +95,13 @@ const GearCard: React.FC<GearCardProps> = ({
           </TouchableOpacity>
         )}
       </View>
-    </View>
+    </Box>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.playpal.white,
-    borderRadius: 8,
-    padding: spacing[4],
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: spacing[4],
-  },
-  titleContainer: {
-    flex: 1,
-  },
-  title: {
-    fontFamily: typography.fontFamilies.bold,
-    fontSize: typography.fontSizes.sm,
-    color: colors.playpal.gray,
-    lineHeight: 21,
-    marginBottom: spacing[1],
-  },
-  subtitle: {
-    fontFamily: typography.fontFamilies.regular,
-    fontSize: 12,
-    color: colors.playpal["inactive-gray"],
-    lineHeight: 18,
-  },
-  iconContainer: {
-    width: 18,
-    height: 18,
-    justifyContent: "center",
-    alignItems: "center",
+    // Box now handles the styling
   },
   gearList: {
     gap: spacing[3],

@@ -7,6 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import Svg, { Path } from "react-native-svg";
+import Box from "./Box";
 import { colors, typography, borderRadius, spacing } from "../styles/theme";
 
 interface EventSportLevelProps {
@@ -98,26 +99,24 @@ const EventSportLevel: React.FC<EventSportLevelProps> = ({
     onLevelSelect?.(levelId);
   };
 
+  const SearchIcon = () => (
+    <Svg width="33" height="34" viewBox="0 0 33 34" fill="none">
+      <Path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M19.9351 21.6005C18.1165 23.0536 15.8107 23.7551 13.491 23.5611C11.1714 23.3671 9.01409 22.2923 7.4622 20.5573C5.9103 18.8224 5.08162 16.5591 5.14636 14.2323C5.21109 11.9055 6.16432 9.69174 7.81028 8.04578C9.45623 6.39983 11.67 5.44659 13.9968 5.38186C16.3236 5.31713 18.5869 6.14581 20.3218 7.6977C22.0568 9.2496 23.1316 11.4069 23.3256 13.7265C23.5196 16.0462 22.8181 18.352 21.365 20.1706L28.3206 27.1248C28.42 27.2174 28.4997 27.3291 28.555 27.4532C28.6103 27.5773 28.64 27.7113 28.6424 27.8471C28.6448 27.983 28.6198 28.1179 28.5689 28.2439C28.5181 28.3699 28.4423 28.4843 28.3462 28.5804C28.2502 28.6765 28.1357 28.7522 28.0097 28.8031C27.8838 28.854 27.7488 28.879 27.613 28.8766C27.4771 28.8742 27.3431 28.8444 27.219 28.7892C27.0949 28.7339 26.9832 28.6541 26.8906 28.5547L19.9351 21.6005ZM9.24408 19.4934C8.25395 18.5031 7.57959 17.2416 7.30623 15.8682C7.03286 14.4949 7.17276 13.0713 7.70823 11.7774C8.24371 10.4835 9.15074 9.37736 10.3147 8.59881C11.4786 7.82026 12.8472 7.40422 14.2475 7.40328C15.6479 7.40234 17.017 7.81653 18.182 8.59351C19.347 9.37049 20.2555 10.4754 20.7927 11.7686C21.33 13.0617 21.4718 14.4851 21.2003 15.8589C20.9287 17.2326 20.2561 18.495 19.2673 19.4866L19.2605 19.4934L19.2538 19.4987C17.9251 20.8243 16.1247 21.5683 14.2478 21.5673C12.371 21.5663 10.5713 20.8204 9.24408 19.4934Z"
+        fill="#15BDFB"
+      />
+    </Svg>
+  );
+
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>My Sports / Sport</Text>
-          <Text style={styles.subtitle}>
-            Set your preferred sports and level.
-          </Text>
-        </View>
-        <TouchableOpacity style={styles.searchButton}>
-          <Svg width="33" height="34" viewBox="0 0 33 34" fill="none">
-            <Path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M19.9351 21.6005C18.1165 23.0536 15.8107 23.7551 13.491 23.5611C11.1714 23.3671 9.01409 22.2923 7.4622 20.5573C5.9103 18.8224 5.08162 16.5591 5.14636 14.2323C5.21109 11.9055 6.16432 9.69174 7.81028 8.04578C9.45623 6.39983 11.67 5.44659 13.9968 5.38186C16.3236 5.31713 18.5869 6.14581 20.3218 7.6977C22.0568 9.2496 23.1316 11.4069 23.3256 13.7265C23.5196 16.0462 22.8181 18.352 21.365 20.1706L28.3206 27.1248C28.42 27.2174 28.4997 27.3291 28.555 27.4532C28.6103 27.5773 28.64 27.7113 28.6424 27.8471C28.6448 27.983 28.6198 28.1179 28.5689 28.2439C28.5181 28.3699 28.4423 28.4843 28.3462 28.5804C28.2502 28.6765 28.1357 28.7522 28.0097 28.8031C27.8838 28.854 27.7488 28.879 27.613 28.8766C27.4771 28.8742 27.3431 28.8444 27.219 28.7892C27.0949 28.7339 26.9832 28.6541 26.8906 28.5547L19.9351 21.6005ZM9.24408 19.4934C8.25395 18.5031 7.57959 17.2416 7.30623 15.8682C7.03286 14.4949 7.17276 13.0713 7.70823 11.7774C8.24371 10.4835 9.15074 9.37736 10.3147 8.59881C11.4786 7.82026 12.8472 7.40422 14.2475 7.40328C15.6479 7.40234 17.017 7.81653 18.182 8.59351C19.347 9.37049 20.2555 10.4754 20.7927 11.7686C21.33 13.0617 21.4718 14.4851 21.2003 15.8589C20.9287 17.2326 20.2561 18.495 19.2673 19.4866L19.2605 19.4934L19.2538 19.4987C17.9251 20.8243 16.1247 21.5683 14.2478 21.5673C12.371 21.5663 10.5713 20.8204 9.24408 19.4934Z"
-              fill="#15BDFB"
-            />
-          </Svg>
-        </TouchableOpacity>
-      </View>
+    <Box 
+      style={styles.container}
+      title="My Sports / Sport"
+      subtitle="Set your preferred sports and level."
+      icon={<SearchIcon />}
+    >
 
       {completedSelection ? (
         <View style={styles.completedCard}>
@@ -165,47 +164,18 @@ const EventSportLevel: React.FC<EventSportLevelProps> = ({
           ))}
         </View>
       )}
-    </View>
+    </Box>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.playpal.white,
-    borderRadius: 8,
-    padding: 20,
     shadowColor: colors.playpal["inactive-gray"],
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.5,
     shadowRadius: 40,
     elevation: 10,
     minHeight: 216,
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 25,
-  },
-  titleContainer: {
-    flex: 1,
-  },
-  title: {
-    fontFamily: typography.fontFamilies.bold,
-    fontSize: 20,
-    color: colors.playpal.gray,
-    lineHeight: 24,
-    letterSpacing: -0.4,
-  },
-  subtitle: {
-    fontFamily: typography.fontFamilies.regular,
-    fontSize: 12,
-    color: colors.playpal.gray,
-    lineHeight: 16.8,
-    marginTop: 1,
-  },
-  searchButton: {
-    padding: 0,
   },
   sportsGrid: {
     flexDirection: "row",

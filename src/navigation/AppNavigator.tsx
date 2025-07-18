@@ -12,6 +12,7 @@ import Gear from "../screens/Gear";
 import Chat from "../screens/Chat";
 import EventDetail from "../screens/EventDetail";
 import EventCreate from "../screens/EventCreate";
+import LoginScreen from "../screens/Login";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -42,6 +43,7 @@ const AppNavigator: React.FC = () => {
         <Stack.Screen name="MainTabs" component={MainTabs} />
         <Stack.Screen name="EventDetail" component={EventDetail} />
         <Stack.Screen name="EventCreate" component={EventCreate} />
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -301,21 +301,13 @@ const Schedule: React.FC<ScheduleProps> = ({
   };
 
   return (
-    <Box style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerContent}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.subtitle}>Set your preferred schedule</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => console.log("Schedule Icon Clicked!")}
-          style={styles.calendarButton}
-        >
-          <PlaceholderCalendarIcon />
-        </TouchableOpacity>
-      </View>
-
+    <Box 
+      style={styles.container}
+      title={title}
+      subtitle="Set your preferred schedule"
+      icon={<PlaceholderCalendarIcon />}
+      onIconPress={() => console.log("Schedule Icon Clicked!")}
+    >
       {/* Content */}
       <View style={styles.content}>
         {/* Day headers */}
@@ -582,35 +574,7 @@ const Schedule: React.FC<ScheduleProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing[4], // p-4
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    marginBottom: spacing[6], // mb-6
-  },
-  headerContent: {
-    flex: 1,
-  },
-  title: {
-    color: colors.playpal.gray,
-    fontWeight: "700" as const,
-    fontSize: typography.fontSizes.xl,
-    lineHeight: 24,
-    marginBottom: 4,
-    fontFamily: typography.fontFamilies.bold,
-  },
-  subtitle: {
-    color: colors.playpal.gray,
-    fontSize: typography.fontSizes.xs,
-    lineHeight: 20,
-    fontFamily: typography.fontFamilies.regular,
-  },
-  calendarButton: {
-    padding: 4,
-    borderRadius: borderRadius.DEFAULT,
-    marginTop: -4,
+    // Remove padding as it's now handled by Box
   },
   content: {
     gap: spacing[3], // space-y-3

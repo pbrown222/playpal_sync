@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import Svg, { Path } from "react-native-svg";
+import Box from "./Box";
 import { colors, typography, borderRadius, spacing } from "../styles/theme";
 
 interface PriceItem {
@@ -83,9 +84,8 @@ const PriceCard: React.FC<PriceCardProps> = ({
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>{title}</Text>
+    <Box style={styles.container} title={title}>
+      <View style={styles.priceHeader}>
         <Text style={styles.totalPrice}>{totalPrice}</Text>
       </View>
 
@@ -127,27 +127,19 @@ const PriceCard: React.FC<PriceCardProps> = ({
           <Text style={styles.totalAmount}>{totalPrice}</Text>
         </View>
       </View>
-    </View>
+    </Box>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.playpal.white,
-    borderRadius: 8,
-    padding: spacing[4],
+    // Box now handles the styling
   },
-  header: {
+  priceHeader: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
     marginBottom: spacing[4],
-  },
-  title: {
-    fontFamily: typography.fontFamilies.bold,
-    fontSize: typography.fontSizes.sm,
-    color: colors.playpal.gray,
-    lineHeight: 21,
   },
   totalPrice: {
     fontFamily: typography.fontFamilies.bold,

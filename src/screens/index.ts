@@ -6,3 +6,4 @@ export { default as Gear } from "./Gear";
 export { default as Chat } from "./Chat";
 export { default as EventDetail } from "./EventDetail";
 export { default as EventCreate } from "./EventCreate";
+export { default as LoginScreen } from "./Login";
